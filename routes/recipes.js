@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
         }
 
         const result = await pool.query(
-            `INSERT INFO recipes (user_id, title, time, servings, mood, ingredients, instructions)
+            `INSERT INTO recipes (user_id, title, time, servings, mood, ingredients, instructions)
             VALUES ($1, $2, $3, $4, $5, $6, $7)
             RETURNING *`,
             [req.user.id, title, time, servings, mood, ingredients, instructions]
